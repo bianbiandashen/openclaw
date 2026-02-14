@@ -223,7 +223,12 @@ export type ChannelThreadingAdapter = {
     accountId?: string | null;
     chatType?: string | null;
   }) => "off" | "first" | "all";
-  allowTagsWhenOff?: boolean;
+  /**
+   * When replyToMode is "off", allow explicit reply tags/directives to keep replyToId.
+   *
+   * Default in shared reply flow: true for known providers; per-channel opt-out supported.
+   */
+  allowExplicitReplyTagsWhenOff?: boolean;
   buildToolContext?: (params: {
     cfg: OpenClawConfig;
     accountId?: string | null;
